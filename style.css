@@ -1,0 +1,34 @@
+* {
+    background-color: rgb(92, 91, 91);
+    text-align: center;
+}
+
+.letterGuess {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 8rem;
+
+    border-radius: 2rem;
+    margin: .1em;
+
+    width: 8rem;
+    height: 8rem;
+
+    font-size: 4rem;
+}
+
+.green {
+    background-color: rgb(97, 194, 72);
+}
+
+.yellow {
+    background-color: rgb(241, 239, 69);
+}
+
+.gray {
+    background-color: gray;
+}
+
+#game {
+    margin: auto;
+}
