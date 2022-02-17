@@ -26,7 +26,7 @@ function setUp() {
 
 function pressKey(event) {
     if (!hasWon && tries < allowedTries) {
-        key = event.key;
+        let key = event.key;
         if (alpha.includes(key) && guess.length < 5) {
             guess += key;
             showWord(guess, tries)
@@ -34,7 +34,7 @@ function pressKey(event) {
         } else if (key == "Backspace") {
             guess = guess.slice(0, -1);
             showWord(guess, tries)
-            
+
         } else if (key == "Enter" && guess.length == 5) {
             if (words.includes(guess)) {
                 guesses.push(guess);
@@ -65,7 +65,7 @@ function pressKey(event) {
 }
 
 function showWord(word, row) {
-    chars = word.slice("");
+    let chars = word.slice("");
     for(let char = 0; char < 5; char++) {
         curTile = document.getElementById(`r${row}l${char}`);
         curTile.innerHTML = chars[char] ? chars[char] : " "
@@ -80,8 +80,7 @@ function showGuesses() {
 
 function checkGuesses() {
     for (let i = 0; i < guesses.length; i++) {
-        chars = guesses[i].split("")
-        tarChars = targetWord.split("")
+        let chars = guesses[i].split(""), tarChars = targetWord.split("")
         hasWon = guesses[i] == targetWord
         for(let j = 0; j < guesses[i].length; j++) {
             curTile = document.getElementById(`r${i}l${j}`)
