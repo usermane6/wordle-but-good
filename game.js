@@ -12,7 +12,7 @@ const gameDiv = document.getElementById("game");
 
 document.addEventListener("keydown", pressKey);
 
-answers.append(targetWord)
+answers.push(targetWord)
 
 function setUp() {
     for (let rows = 0; rows < allowedTries; rows++) {
@@ -47,7 +47,7 @@ function pressKey(event) {
                 tries++
                 guess = ""
                 if (!hasWon && tries < allowedTries) {targetWord = pickWord()}
-                answers.append(targetWord)
+                answers.push(targetWord)
                 showGuesses();
                 checkGuesses();
             } else if (guess.length == 5) {
