@@ -2,7 +2,8 @@ let targetWord = pickWord(),
     guess = "",
     guesses = [],
     tries = 0,
-    hasWon = false
+    hasWon = false,
+    answers = [];
 
 const alpha = "abcdefghijklmnopqrstuvwxyz",
     allowedTries = 6;
@@ -10,6 +11,8 @@ const alpha = "abcdefghijklmnopqrstuvwxyz",
 const gameDiv = document.getElementById("game");
 
 document.addEventListener("keydown", pressKey);
+
+answers.append(targetWord)
 
 function setUp() {
     for (let rows = 0; rows < allowedTries; rows++) {
@@ -44,6 +47,7 @@ function pressKey(event) {
                 tries++
                 guess = ""
                 if (!hasWon && tries < allowedTries) {targetWord = pickWord()}
+                answers.append(targetWord)
                 showGuesses();
                 checkGuesses();
             } else if (guess.length == 5) {
