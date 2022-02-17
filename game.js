@@ -30,19 +30,36 @@ function pressKey(event) {
         if (alpha.includes(key) && guess.length < 5) {
             guess += key;
             showWord(guess, tries)
+
         } else if (key == "Backspace") {
             guess = guess.slice(0, -1);
             showWord(guess, tries)
-        } else if (key == "Enter" && guess.length == 5 && words.includes(guess)) {
-            guesses.push(guess);
-            showGuesses();
-            checkGuesses();
-            if (!hasWon && tries < allowedTries) {showWord(guess, tries)}
-            tries++
-            guess = ""
-            if (!hasWon && tries < allowedTries) {targetWord = pickWord()}
-            showGuesses();
-            checkGuesses();
+            
+        } else if (key == "Enter" && guess.length == 5) {
+            if (words.includes(guess)) {
+                guesses.push(guess);
+                showGuesses();
+                checkGuesses();
+                if (!hasWon && tries < allowedTries) {showWord(guess, tries)}
+                tries++
+                guess = ""
+                if (!hasWon && tries < allowedTries) {targetWord = pickWord()}
+                showGuesses();
+                checkGuesses();
+            } else if (guess.length == 5) {
+                for (var i = 0; i < 5; i++) {
+                    curTile = document.getElementById(`r${tries}l${i}`)
+
+                    curTile.classList.add("red")
+                }
+                
+                setTimeout(function() {
+                    for (var i = 0; i < 5; i++) {
+                        curTile = document.getElementById(`r${tries}l${i}`)
+                        curTile.classList.remove("red")
+                    }
+                }, 1000)
+            }
         }
     }
 }
@@ -62,7 +79,6 @@ function showGuesses() {
 }
 
 function checkGuesses() {
-
     for (let i = 0; i < guesses.length; i++) {
         chars = guesses[i].split("")
         tarChars = targetWord.split("")

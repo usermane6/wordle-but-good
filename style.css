@@ -29,6 +29,21 @@
     background-color: gray;
 }
 
+.red {
+    animation-duration: 1s;
+    animation-name: errorAnim;
+}
+
+@keyframes errorAnim {
+    from {
+        background-color: red;
+    }
+
+    to {
+        background-color: gray;
+    }
+}
+
 #game {
     margin: auto;
 }
