@@ -29,14 +29,15 @@
     background-color: gray;
 }
 
+.border {
+    border-style: solid;
+}
+
 .red {
     animation-duration: 1s;
     animation-name: errorAnim;
 }
 
-.border {
-    border-style: solid;
-}
 
 @keyframes errorAnim {
     from {
