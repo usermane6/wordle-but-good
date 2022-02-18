@@ -25,6 +25,8 @@ function setUp() {
         linebreak = document.createElement("br");
         gameDiv.appendChild(linebreak);
     }
+    
+    toggleBorders()
 }
 
 function pressKey(event) {
@@ -50,6 +52,7 @@ function pressKey(event) {
                 answers.push(targetWord)
                 showGuesses();
                 checkGuesses();
+                toggleBorders()
             } else if (guess.length == 5) {
                 for (var i = 0; i < 5; i++) {
                     curTile = document.getElementById(`r${tries}l${i}`)
@@ -79,6 +82,13 @@ function showWord(word, row) {
 function showGuesses() {
     for(let i = 0; i < guesses.length; i++) {
         showWord(guesses[i], i)
+    }
+}
+
+function toggleBorders() {
+    for(let i = 0; i < 5; i++) {
+        let curTile = document.getElementById(`r${tries}l${i}`)
+        curTile.classList.toggle("border")
     }
 }
 
