@@ -65,7 +65,7 @@ button:hover {
     }
 
     to {
-        background-color: gray;
+        background-color: rgb(80, 79, 79);
     }
 }
 
