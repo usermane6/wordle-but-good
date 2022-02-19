@@ -9,6 +9,11 @@
 </head>
 <body onload="setUp()">
     <h1>Wordle But Good</h1>
+    <div hidden id="playagain">
+        <h1>Play Again?</h1>
+        <button onclick="restart()">Yes</button>
+        <button onclick="no()">No</button>
+    </div>
     <div id="game"></div>
     <script src="words.js"></script>
     <script src="game.js"></script>

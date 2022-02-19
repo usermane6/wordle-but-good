@@ -3,6 +3,25 @@
     text-align: center;
 }
 
+button {
+    height: 50%;
+    width: 20%;
+
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: none;
+    
+    background-color: rgb(97, 194, 72);
+    font-family: 'Times New Roman', serif;
+    font-size: 2em;
+}
+
+button:hover {
+    background-color: rgb(82, 144, 67);
+    transform: scale(1.1);
+}
+
 .letterGuess {
     vertical-align: middle;
     display: inline-block;
@@ -47,4 +66,19 @@
     to {
         background-color: gray;
     }
+}
+
+#game {
+    position: relative;
+}
+
+#playagain {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    top: 25%;
+    left: 0;
+    z-index: 9;
+
+    
 }

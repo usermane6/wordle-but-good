@@ -1,20 +1,22 @@
-let targetWord = pickWord(),
-    guess = "",
-    guesses = [],
-    tries = 0,
-    hasWon = false,
-    answers = [];
+let targetWord,guess,guesses,tries,hasWon,answers;
 
 const alpha = "abcdefghijklmnopqrstuvwxyz",
     allowedTries = 6;
 
-const gameDiv = document.getElementById("game");
+const gameDiv = document.getElementById("game"), 
+    endGame = document.getElementById("playagain");
 
 document.addEventListener("keydown", pressKey);
 
-answers.push(targetWord)
-
 function setUp() {
+    targetWord = pickWord()
+    guess = ""
+    guesses = []
+    tries = 0
+    hasWon = false
+    answers = []
+    answers.push(targetWord)
+
     for (let rows = 0; rows < allowedTries; rows++) {
         for (let letter = 0; letter < 5; letter++) {
             newTile = document.createElement("div");
@@ -29,9 +31,19 @@ function setUp() {
     toggleBorders()
 }
 
+function restart() {
+    gameDiv.innerHTML = ""
+    setUp()
+    endGame.hidden = true
+}
+
+function no() {
+    endGame.hidden = true
+}
+
 function pressKey(event) {
+    let key = event.key;
     if (!hasWon && tries < allowedTries) {
-        let key = event.key;
         if (alpha.includes(key) && guess.length < 5) {
             guess += key;
             showWord(guess, tries)
@@ -48,11 +60,16 @@ function pressKey(event) {
                 if (!hasWon && tries < allowedTries) {showWord(guess, tries)}
                 tries++
                 guess = ""
-                if (!hasWon && tries < allowedTries) {targetWord = pickWord()}
-                answers.push(targetWord)
-                showGuesses();
-                checkGuesses();
-                toggleBorders()
+                if (!hasWon && tries < allowedTries) {
+                    targetWord = pickWord()
+                    toggleBorders()    
+                    answers.push(targetWord)
+                    showGuesses();
+                    checkGuesses();
+                } else {
+                    endGame.hidden = false
+                }
+
             } else if (guess.length == 5) {
                 for (var i = 0; i < 5; i++) {
                     curTile = document.getElementById(`r${tries}l${i}`)
@@ -77,7 +94,7 @@ function showWord(word, row) {
         curTile = document.getElementById(`r${row}l${char}`);
         curTile.innerHTML = chars[char] ? chars[char] : " "
     }
-}
+}   
 
 function showGuesses() {
     for(let i = 0; i < guesses.length; i++) {
