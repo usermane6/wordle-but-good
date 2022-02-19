@@ -1,6 +1,8 @@
 * {
-    background-color: rgb(92, 91, 91);
+    background-color: rgb(49, 49, 49);
     text-align: center;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(246, 246, 246);
 }
 
 button {
@@ -12,13 +14,12 @@ button {
     margin-right: 20px;
     border: none;
     
-    background-color: rgb(97, 194, 72);
-    font-family: 'Times New Roman', serif;
+    background-color: rgb(77, 202, 45);
     font-size: 2em;
 }
 
 button:hover {
-    background-color: rgb(82, 144, 67);
+    background-color: rgb(35, 153, 6);
     transform: scale(1.1);
 }
 
@@ -27,7 +28,7 @@ button:hover {
     display: inline-block;
     line-height: 8rem;
 
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     margin: .1em;
 
     width: 8rem;
@@ -37,15 +38,15 @@ button:hover {
 }
 
 .green {
-    background-color: rgb(97, 194, 72);
+    background-color: rgb(77, 202, 45);
 }
 
 .yellow {
-    background-color: rgb(241, 239, 69);
+    background-color: rgb(236, 226, 79);
 }
 
 .gray {
-    background-color: gray;
+    background-color: rgb(80, 79, 79);
 }
 
 .border {
@@ -79,6 +80,4 @@ button:hover {
     top: 25%;
     left: 0;
     z-index: 9;
-
-    
 }

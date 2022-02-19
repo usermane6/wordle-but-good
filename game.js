@@ -92,7 +92,7 @@ function showWord(word, row) {
     let chars = word.slice("");
     for(let char = 0; char < 5; char++) {
         curTile = document.getElementById(`r${row}l${char}`);
-        curTile.innerHTML = chars[char] ? chars[char] : " "
+        curTile.innerHTML = chars[char] ? chars[char].toUpperCase() : " "
     }
 }   
 
